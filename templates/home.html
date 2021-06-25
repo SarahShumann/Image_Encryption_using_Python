@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <body>
+
+    <br/>
+    {#two forms and enc button#}
+      <form action="/upload-image" method="POST" enctype="multipart/form-data">
+
+        <div class="form-group">
+          <label>Choose an image to encrypt</label>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" name="image1" id="image1">
+            <label class="custom-file-label" for="image1">Select image1...</label>
+          </div>
+		  <label>Choose a Key Image</label>
+		  <div class="custom-file">
+            <input type="file" class="custom-file-input" name="image2" id="image2">
+            <label class="custom-file-label" for="image2">Select image2...</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Encrypt</button>
+
+      </form>
+{#upload enc to cloud#}
+    <form action="/cloud/" method="POST" enctype="multipart/form-data">
+
+
+
+        <button type="submit" class="btn btn-primary">Upload Encrypted To Cloud</button>
+
+      </form>
+
+    {#download enc from cloud#}
+
+    <form action="/download/" method="POST" enctype="multipart/form-data">
+
+
+
+        <button type="submit" onclick="myFunction()" class="btn btn-primary">Download Encrypted From Cloud</button>
+
+      </form>
+
+    {#decrypt button#}
+
+    <form action="/my-link/" method="POST" enctype="multipart/form-data">
+
+
+
+        <button type="submit" class="btn btn-primary">Decrypt</button>
+
+      </form>
+
+
+
+    <table id="List">
+
+        <tbody>
+
+        </tbody>
+      </table>
+
+
+<script src="../js/app.js"></script>
+</body>
+   {# <script>
+function myFunction() {
+  alert("Image Downloaded, Check downloads Folder");
+}
+</script>#}
+
+{% endblock %}
